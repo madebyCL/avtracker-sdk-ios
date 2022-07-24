@@ -7,19 +7,18 @@ namespace :test do
 
   desc 'Run the MatomoTracker Unit tests'
   task ios: :prepare do
-    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=11.2')
+    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=12.4')
     build_failed('tests') unless $?.success?
-    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=10.3.1')
+    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=11.4')
     build_failed('tests') unless $?.success?
-    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=9.3')
-    build_failed('tests') unless $?.success?
-    run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=8.4')
-    build_failed('tests') unless $?.success?
+    # When running Quick on iOS 10.3.1 it fails with a EXC_BAD_ACCESS
+    # run_tests('MatomoTracker', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=10.3.1')
+    # build_failed('tests') unless $?.success?
   end
 
   desc 'Build the MatomoTracker iOS demo'
   task ios_demo: :prepare do
-    run_build('ios', 'iphonesimulator')
+    run_build('ios', 'iphonesimulator', 'platform=iOS Simulator,name=iPhone 6,OS=12.4')
     build_failed('iOS') unless $?.success?
   end
 
@@ -31,7 +30,7 @@ namespace :test do
 
   desc 'Build the MatomoTracker tvOS demo'
   task tvos_demo: :prepare do
-    run_build('tvos', 'appletvsimulator', 'platform=tvOS Simulator,name=Apple TV,OS=11.2')
+    run_build('tvos', 'appletvsimulator', 'platform=tvOS Simulator,name=Apple TV,OS=14.3')
     build_failed('tvOS') unless $?.success?
   end
 end
@@ -45,6 +44,12 @@ namespace :package_manager do
   task carthage: :prepare do
     sh("carthage build --no-skip-current") rescue nil
     package_manager_failed('Carthage integration') unless $?.success?
+  end
+
+  desc 'Builds the project with the Swift Package Manager'
+  task spm: :prepare do
+    sh("swift build") rescue nil
+    package_manager_failed('Swift Package Manager') unless $?.success?
   end
 end
 
@@ -60,6 +65,7 @@ end
 desc 'Check the integration of MatomoTracker with package managers'
 task :build_with_package_manager do
   Rake::Task['package_manager:carthage'].invoke
+  Rake::Task['package_manager:spm'].invoke
 end
 
 task default: 'test'
@@ -67,11 +73,11 @@ task default: 'test'
 
 private
 
-def run_build(scheme, sdk, destination = 'platform=iOS Simulator,name=iPhone 6,OS=10.3.1')
+def run_build(scheme, sdk, destination = 'platform=iOS Simulator,name=iPhone 6,OS=12.4')
   sh("xcodebuild -workspace MatomoTracker.xcworkspace -scheme '#{scheme}' -sdk '#{sdk}' -destination '#{destination}' -configuration Release clean build | xcpretty -c ; exit ${PIPESTATUS[0]}") rescue nil
 end
 
-def run_tests(scheme, sdk, destination = 'platform=iOS Simulator,name=iPhone 6,OS=10.3.1')
+def run_tests(scheme, sdk, destination = 'platform=iOS Simulator,name=iPhone 6,OS=12.4')
   sh("xcodebuild -workspace MatomoTracker.xcworkspace -scheme '#{scheme}' -sdk '#{sdk}' -destination '#{destination}' -configuration Debug clean test | xcpretty -c ; exit ${PIPESTATUS[0]}") rescue nil
 end
 

@@ -1,39 +1,39 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 abstract_target :example do
   use_frameworks!
   inhibit_all_warnings!
-  project 'MatomoTracker'
-  workspace 'MatomoTracker'
+  project 'AvTracker'
+  workspace 'AvTracker'
 
-  target :ios do
-    platform :ios, '8.0'
+  target :iOSExampleApp do
+    platform :ios, '10.0'
     project 'Example/ios/ios'
-    pod 'MatomoTracker', path: './'
+    pod 'AvTracker', path: './'
   end
 
-  target :macos do
-    platform :osx, '10.12'
+  target :macOSExampleApp do
+    platform :osx, '10.13'
     project 'Example/macos/macos'
-    pod 'MatomoTracker', path: './'
+    pod 'AvTracker', path: './'
   end
 
-  target :tvos do
+  target :tvOSExampleApp do
     platform :tvos, '10.2'
     project 'Example/tvos/tvos'
-    pod 'MatomoTracker', path: './'
+    pod 'AvTracker', path: './'
   end
 
 end
 
-target 'MatomoTrackerTests' do
+target 'AvTrackerTests' do
   use_frameworks!
-  platform :ios, '8.0'
+  platform :ios, '9.0'
   inhibit_all_warnings!
-  project 'MatomoTracker'
-  workspace 'MatomoTracker'
+  project 'AvTracker'
+  workspace 'AvTracker'
   inherit! :search_paths
-  
-  pod 'Quick', '~> 1.2'
-  pod 'Nimble', '~> 7.0'
+
+  pod 'Quick', '~> 3.0'
+  pod 'Nimble', '~> 9.0'
 end

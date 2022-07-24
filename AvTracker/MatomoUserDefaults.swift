@@ -71,6 +71,16 @@ internal struct MatomoUserDefaults {
         }
     }
     
+    var forcedVisitorId: String? {
+        get {
+            return userDefaults.string(forKey: MatomoUserDefaults.Key.forcedVisitorID)
+        }
+        set {
+            userDefaults.setValue(newValue, forKey: MatomoUserDefaults.Key.forcedVisitorID)
+            userDefaults.synchronize()
+        }
+    }
+    
     var visitorUserId: String? {
         get {
             return userDefaults.string(forKey: MatomoUserDefaults.Key.visitorUserID);
@@ -80,17 +90,28 @@ internal struct MatomoUserDefaults {
             userDefaults.synchronize()
         }
     }
+    
+    var lastOrder: Date? {
+        get {
+            return userDefaults.object(forKey: MatomoUserDefaults.Key.lastOrder) as? Date
+        }
+        set {
+            userDefaults.set(newValue, forKey: MatomoUserDefaults.Key.lastOrder)
+        }
+    }
 }
 
 extension MatomoUserDefaults {
     public mutating func copy(from userDefaults: UserDefaults) {
-        totalNumberOfVisits = UserDefaults.standard.integer(forKey: MatomoUserDefaults.Key.totalNumberOfVisits)
-        firstVisit = UserDefaults.standard.object(forKey: MatomoUserDefaults.Key.firstVistsTimestamp) as? Date
-        previousVisit = UserDefaults.standard.object(forKey: MatomoUserDefaults.Key.previousVistsTimestamp) as? Date
-        currentVisit = UserDefaults.standard.object(forKey: MatomoUserDefaults.Key.currentVisitTimestamp) as? Date
-        optOut = UserDefaults.standard.bool(forKey: MatomoUserDefaults.Key.optOut)
-        clientId = UserDefaults.standard.string(forKey: MatomoUserDefaults.Key.clientID)
-        visitorUserId = UserDefaults.standard.string(forKey: MatomoUserDefaults.Key.visitorUserID)
+        totalNumberOfVisits = userDefaults.integer(forKey: MatomoUserDefaults.Key.totalNumberOfVisits)
+        firstVisit = userDefaults.object(forKey: MatomoUserDefaults.Key.firstVistsTimestamp) as? Date
+        previousVisit = userDefaults.object(forKey: MatomoUserDefaults.Key.previousVistsTimestamp) as? Date
+        currentVisit = userDefaults.object(forKey: MatomoUserDefaults.Key.currentVisitTimestamp) as? Date
+        optOut = userDefaults.bool(forKey: MatomoUserDefaults.Key.optOut)
+        clientId = userDefaults.string(forKey: MatomoUserDefaults.Key.clientID)
+        forcedVisitorId = userDefaults.string(forKey: MatomoUserDefaults.Key.forcedVisitorID)
+        visitorUserId = userDefaults.string(forKey: MatomoUserDefaults.Key.visitorUserID)
+        lastOrder = userDefaults.object(forKey: MatomoUserDefaults.Key.lastOrder) as? Date
     }
 }
 
@@ -104,7 +125,9 @@ extension MatomoUserDefaults {
         // Note:    To be compatible with previous versions, the clientID key retains its old value,
         //          even though it is now a misnomer since adding visitorUserID makes it a bit confusing.
         static let clientID = "PiwikVisitorIDKey"
+        static let forcedVisitorID = "PiwikForcedVisitorIDKey"
         static let visitorUserID = "PiwikVisitorUserIDKey"
         static let optOut = "PiwikOptOutKey"
+        static let lastOrder = "PiwikLastOrderDateKey"
     }
 }

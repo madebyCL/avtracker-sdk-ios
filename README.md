@@ -1,29 +1,40 @@
 # MatomoTracker (former PiwikTracker) iOS SDK
 
-The MatomoTracker is an iOS, tvOS and macOS SDK for sending app analytics to a Matomo server. MatomoTracker can be used from Swift and [Objective-C](#objective-c-compatibility).
+The MatomoTracker is an iOS, tvOS and macOS SDK for sending app analytics to a Matomo server. MatomoTracker can be used from Swift and [Objective-C](https://github.com/matomo-org/matomo-sdk-ios/wiki/FAQ#how-to-use-the-matomotracker-from-objective-c).
 
-**Fancy help improve this SDK? Check [this list](https://github.com/matomo-org/matomo-sdk-ios/issues?utf8=✓&q=is%3Aopen%20is%3Aissue%20label%3Adiscussion%20label%3Aswift3) to see what is left and can be improved.**
-
-[![Build Status](https://travis-ci.org/matomo-org/matomo-sdk-ios.svg?branch=develop)](https://travis-ci.org/matomo-org/matomo-sdk-ios)
+**Fancy help improve this SDK? Check [this list](https://github.com/matomo-org/matomo-sdk-ios/issues?utf8=✓&q=is%3Aopen+is%3Aissue) to see what is left and can be improved.**
 
 ## Installation
-### [CocoaPods](https://cocoapods.org)
+
+The MatomoTracker can be installed via CocoaPods, Carthage and the Swift Package Manager. In every file you want to use the MatomoTracker, don't forget to import the framework with `import MatomoTracker`.
+
+<details><summary>CocoaPods</summary>
 
 Use the following in your Podfile.
-
 ```
-pod 'MatomoTracker', '~> 5.1'
+pod 'MatomoTracker', '~> 7.5'
 ```
+Then run `pod install`.
 
-Then run `pod install`. In every file you want to use the MatomoTracker, don't forget to import the framework with `import MatomoTracker`.
+</details>
 
-### Carthage
+<details><summary>Carthage</summary>
 
 [Carthage](https://github.com/Carthage/Carthage) is a non intrusive way to install MatomoTracker to your project. It makes no changes to your Xcode project and workspace. Add the following to your Cartfile:
 
 ```
 github "matomo-org/matomo-sdk-ios"
 ```
+
+</details>
+
+<details><summary>Swift Package Manager</summary>
+
+You can use the Swift Package Manager as integration method. If you want to use the Swift Package Manager as integration method, either use Xcode to add the package dependency or add the following dependency to your Package.swift:
+
+`.package(url: "https://github.com/matomo-org/matomo-sdk-ios.git", from: "v7.5"),`
+
+</details>
 
 ## Usage
 ### Matomo Instance
@@ -35,7 +46,7 @@ let matomoTracker = MatomoTracker(siteId: "23", baseURL: URL(string: "https://de
 ```
 
 
-The `siteId` is the ID that you can get if you [add a website](https://matomo.org/docs/manage-websites/#add-a-website) within the Matomo web interface. The `baseURL` it the URL to your Matomo web instance and has to include the "piwik.php" string.
+The `siteId` is the ID that you can get if you [add a website](https://matomo.org/docs/manage-websites/#add-a-website) within the Matomo web interface. The `baseURL` it the URL to your Matomo web instance and has to include the "piwik.php" or "matomo.php" string.
 
 You can either pass around this instance, or add an extension to the `MatomoTracker` class and add a shared instance property.
 
@@ -45,7 +56,7 @@ extension MatomoTracker {
 }
 ```
 
-The `siteId` is the ID that you can get if you [add a website](https://matomo.org/docs/manage-websites/#add-a-website) within the Matomo web interface. The `baseURL` is the URL to your Matomo web instance and has to include the "piwik.php" string.
+The `siteId` is the ID that you can get if you [add a website](https://matomo.org/docs/manage-websites/#add-a-website) within the Matomo web interface. The `baseURL` is the URL to your Matomo web instance and has to include the "piwik.php" or "matomo.php" string.
 
 You can use multiple instances within one application.
 
@@ -114,32 +125,68 @@ Dimensions in the Visit Scope will be sent along every Page View or Event. Custo
 
 ### Custom User ID
 
-To add a [custom User ID](https://matomo.org/docs/user-id/), simply set the value you'd like to use on the `visitorId` field of the tracker:
+To add a [custom User ID](https://matomo.org/docs/user-id/), simply set the value you'd like to use on the `userId` field of the tracker:
 
 ```Swift
-matomoTracker.visitorId = "coolUsername123"
+matomoTracker.userId = "coolUsername123"
 ```
 
 All future events being tracked by the SDK will be associated with this userID, as opposed to the default UUID created for each Visitor.
+
+###  Custom Visitor ID persisted on app starts
+
+MatomoTracker will generate an `_id` upon first usage and will use this value to recognize the current visitor. This `_id` is persisted over app starts.
+
+If you want to set your own visitor id, you can set your own visitor id with the `forcedVisitorId` field. Make sure you use a 16 character long hexadecimal string. The `forcedVisitorId` is persisted over app starts.
+
+```Swift
+matomoTracker.forcedVisitorId = "0123456789abcdef"
+```
+
+Because the SDK persists this visitor id on app start, then we recommend to ask users for consent before tracking your app users.
 
 ### Campaign Tracking
 
 The Matomo iOS SDK supports [campaign tracking](https://matomo.org/docs/tracking-campaigns/).
 
 ```Swift
-matomoTracker.trackCampaign(name: @"campaign_name", keyword: @"campaign_keyword")
+matomoTracker.trackCampaign(name: "campaign_name", keyword: "campaign_keyword")
+```
+
+### Content Tracking
+
+The Matomo iOS SDK supports [content tracking](https://matomo.org/docs/content-tracking/).
+
+```Swift
+matomoTracker.trackContentImpression(name: "preview-liveaboard", piece: "Malaysia", target: "https://dummy.matomo.org/liveaboard/malaysia")
+matomoTracker.trackContentInteraction(name: "preview-liveaboard", interaction: "tap", piece: "Malaysia", target: "https://dummy.matomo.org/liveaboard/malaysia")
+```
+
+### Goal Tracking
+
+The Matomo iOS SDK supports [goal tracking](https://matomo.org/docs/tracking-goals-web-analytics/).
+
+```Swift
+matomoTracker.trackGoal(id: 1, revenue: 99.99)
+```
+
+### Order Tracking
+
+The Matomo iOS SDK supports [order tracking](https://matomo.org/docs/ecommerce-analytics/#tracking-ecommerce-orders-items-purchased-required).
+
+```Swift
+let items = [
+  OrderItem(sku: "product_sku_1", name: "iPhone Xs", category: "phone", price: 999.99, quantity: 1),
+  OrderItem(sku: "product_sku_2", name: "iPhone Xs Max", category: "phone", price: 1199.99, quantity: 1)
+]
+
+matomoTracker.trackOrder(id: "order_id_1234", items: items, revenue: 2199.98, subTotal: 2000, tax: 190.98, shippingCost: 9)
 ```
 
 ## Advanced Usage
 ### Manual dispatching
 
-The MatomoTracker will dispatch events every 30 seconds automatically. If you want to dispatch events manually, you can use the `dispatch()` function. You can, for example, dispatch whenever the application enter the background.
-
-```Swift
-func applicationDidEnterBackground(_ application: UIApplication) {
-  matomoTracker.dispatch()
-}
-```
+The MatomoTracker will dispatch events every 30 seconds automatically. If you want to dispatch events manually, you can use the `dispatch()` function.
 
 ### Session Management
 
@@ -173,18 +220,6 @@ You can instantiate the `MatomoTracker` using your own user agent.
 let matomoTracker = MatomoTracker(siteId: "5", baseURL: URL(string: "http://your.server.org/path-to-matomo/piwik.php")!, userAgent: "Your custom user agent")
 ```
 
-### Objective-C compatibility
-
-Version 4 of this SDK is written in Swift, but you can use it in your Objective-C project as well. If you don't want to update you can still use the unsupported older [version 3](https://github.com/matomo-org/matomo-sdk-ios/tree/version-3). Using the Swift SDK from Objective-C should be pretty straight forward.
-
-```objc
-MatomoTracker *matomoTracker = [[MatomoTracker alloc] initWithSiteId:@"5" baseURL:[NSURL URLWithString:@"http://your.server.org/path-to-matomo/piwik.php"] userAgent:nil];
-[matomoTracker trackWithView:@[@"example"] url:nil];
-[matomoTracker trackWithEventWithCategory:@"category" action:@"action" name:nil number:nil url:nil];
-[matomoTracker dispatch];
-matomoTracker.logger = [[DefaultLogger alloc] initWithMinLevel:LogLevelVerbose];
-```
-
 ### Sending custom events
 
 Instead of using the convenience functions for events and screen views for example you can create your event manually and even send custom tracking parameters. This feature isn't available from Objective-C.
@@ -211,23 +246,7 @@ You can define the url property on every `Event`. If none is defined, the SDK wi
 Whenever you track an event or a page view it is stored in memory first. In every dispatch run a batch of those events are sent to the server. If the device is offline or the server doesn't respond these events will be kept and resent at a later time. Events currently aren't stored on disk and will be lost if the application is terminated. [#137](https://github.com/matomo-org/matomo-sdk-ios/issues/137)
 
 ## Contributing
-Please read [CONTRIBUTING.md](https://github.com/matomo-org/matomo-sdk-ios/blob/swift3/CONTRIBUTING.md) for details.
-
-## ToDo
-### These features aren't implemented yet
-
-- Basic functionality
-  - [Persisting non dispatched events](https://github.com/matomo-org/matomo-sdk-ios/issues/137)
-- Tracking of more things
-  - Social Interactions
-  - Goals and Conversions
-  - Outlinks
-  - Downloads
-  - [Ecommerce Transactions](https://github.com/matomo-org/matomo-sdk-ios/issues/110)
-  - Content Impressions / Content Interactions
-- Customizing the tracker
-  - set the dispatch interval
-  - use different dispatchers (Alamofire)
+Please read [CONTRIBUTING.md](https://github.com/matomo-org/matomo-sdk-ios/blob/develop/CONTRIBUTING.md) for details.
 
 ## License
 
