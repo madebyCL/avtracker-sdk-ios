@@ -103,7 +103,7 @@
 				1F38EBE11EE55AE50021FBF8 /* Sources */,
 				1F38EBE21EE55AE50021FBF8 /* Frameworks */,
 				1F38EBE31EE55AE50021FBF8 /* Resources */,
-				1BAD3F74505E36F2DCCEFA9D /* [CP] Embed Pods Frameworks */,
+				324D03D27D181B5F1AD8D5BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -162,18 +162,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BAD3F74505E36F2DCCEFA9D /* [CP] Embed Pods Frameworks */ = {
+		324D03D27D181B5F1AD8D5BB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-example-tvOSExampleApp/Pods-example-tvOSExampleApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MatomoTracker-tvOS/MatomoTracker.framework",
+				"${BUILT_PRODUCTS_DIR}/AvTracker-tvOS/AvTracker.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MatomoTracker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AvTracker.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

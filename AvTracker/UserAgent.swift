@@ -17,7 +17,7 @@ struct UserAgent {
     var stringValue: String {
         [
             "Darwin/\(device.darwinVersion ?? "Unknown-Version") (\(device.platform); \(device.operatingSystem) \(device.osVersion))",
-            "MatomoTrackerSDK/\(MatomoTracker.sdkVersion)",
+            "MatomoTrackerSDK/\(AvTracker.sdkVersion)",
             "\(application.bundleName ?? "Unknown-App")/\(application.bundleShortVersion ?? "Unknown-Version")"
         ].joined(separator: " ")
     }

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PiwikTracker.xcodeproj">
+      location = "self:/Users/leciel/SCM/Crawl/simpledatabackend/avtracker-sdk-ios/AvTracker.xcodeproj">
    </FileRef>
 </Workspace>

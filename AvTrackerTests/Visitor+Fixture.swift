@@ -1,4 +1,4 @@
-@testable import MatomoTracker
+@testable import AvTracker
 
 extension Visitor {
     static func fixture(id: String = "spec_visitor_id", forcedId: String? = nil, userId: String? = nil) -> Visitor {

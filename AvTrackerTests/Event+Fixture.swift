@@ -1,4 +1,4 @@
-@testable import MatomoTracker
+@testable import AvTracker
 
 extension Event {
     static func fixture(

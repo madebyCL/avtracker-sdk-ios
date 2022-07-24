@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1030"
+   LastUpgradeVersion = "1340"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FCA6D3A1DBE0B2F0033F01C"
-               BuildableName = "MatomoTracker.framework"
-               BlueprintName = "MatomoTracker"
-               ReferencedContainer = "container:MatomoTracker.xcodeproj">
+               BuildableName = "AvTracker.framework"
+               BlueprintName = "AvTracker"
+               ReferencedContainer = "container:AvTracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FCA6D431DBE0B2F0033F01C"
-               BuildableName = "MatomoTrackerTests.xctest"
-               BlueprintName = "MatomoTrackerTests"
-               ReferencedContainer = "container:MatomoTracker.xcodeproj">
+               BuildableName = "AvTrackerTests.xctest"
+               BlueprintName = "AvTrackerTests"
+               ReferencedContainer = "container:AvTracker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FCA6D3A1DBE0B2F0033F01C"
-            BuildableName = "MatomoTracker.framework"
-            BlueprintName = "MatomoTracker"
-            ReferencedContainer = "container:MatomoTracker.xcodeproj">
+            BuildableName = "AvTracker.framework"
+            BlueprintName = "AvTracker"
+            ReferencedContainer = "container:AvTracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -57,9 +57,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1FCA6D431DBE0B2F0033F01C"
-               BuildableName = "MatomoTrackerTests.xctest"
-               BlueprintName = "MatomoTrackerTests"
-               ReferencedContainer = "container:MatomoTracker.xcodeproj">
+               BuildableName = "AvTrackerTests.xctest"
+               BlueprintName = "AvTrackerTests"
+               ReferencedContainer = "container:AvTracker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -78,9 +78,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FCA6D3A1DBE0B2F0033F01C"
-            BuildableName = "MatomoTracker.framework"
-            BlueprintName = "MatomoTracker"
-            ReferencedContainer = "container:MatomoTracker.xcodeproj">
+            BuildableName = "AvTracker.framework"
+            BlueprintName = "AvTracker"
+            ReferencedContainer = "container:AvTracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1FCA6D3A1DBE0B2F0033F01C"
-            BuildableName = "MatomoTracker.framework"
-            BlueprintName = "MatomoTracker"
-            ReferencedContainer = "container:MatomoTracker.xcodeproj">
+            BuildableName = "AvTracker.framework"
+            BlueprintName = "AvTracker"
+            ReferencedContainer = "container:AvTracker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

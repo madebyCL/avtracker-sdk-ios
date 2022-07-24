@@ -1,4 +1,4 @@
-@testable import MatomoTracker
+@testable import AvTracker
 import Quick
 import Nimble
 
@@ -7,11 +7,11 @@ class TrackerSpec: QuickSpec {
         Nimble.AsyncDefaults.timeout = .seconds(5)
         describe("init") {
             it("should be able to initialized the MatomoTracker with a URL ending on `matomo.php`") {
-                let tracker = MatomoTracker(siteId: "5", baseURL: URL(string: "https://example.com/matomo.php")!)
+                let tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://example.com/matomo.php")!)
                 expect(tracker).toNot(beNil())
             }
             it("should be released if no external strong reference exists (no retain cycles") {
-                weak var tracker = MatomoTracker(siteId: "5", baseURL: URL(string: "https://example.com/matomo.php")!)
+                weak var tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://example.com/matomo.php")!)
                 expect(tracker).to(beNil())
             }
         }
@@ -28,7 +28,7 @@ class TrackerSpec: QuickSpec {
                 expect(queuedEvent).toNot(beNil())
             }
             it("should not throw an assertion if called from a background thread") {
-                let tracker = MatomoTracker.fixture(queue: MemoryQueue(), dispatcher: DispatcherMock())
+                let tracker = AvTracker.fixture(queue: MemoryQueue(), dispatcher: DispatcherMock())
                 var queued = false
                 DispatchQueue.global(qos: .background).async {
                     expect{ tracker.queue(event: .fixture()) }.toNot(throwAssertion())
@@ -49,7 +49,7 @@ class TrackerSpec: QuickSpec {
                 it("should give dequeued events to the dispatcher") {
                     var eventsDispatched: [Event] = []
                     let dispatcher = DispatcherMock()
-                    let tracker = MatomoTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
+                    let tracker = AvTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
                     dispatcher.sendEventsHandler = { events, _,_ in
                         eventsDispatched = events
                     }
@@ -60,12 +60,12 @@ class TrackerSpec: QuickSpec {
                 it("should set isDispatching to true") {
                     let queue = QueueMock()
                     queue.eventCount = 1
-                    let tracker = MatomoTracker.fixture(queue: queue, dispatcher: DispatcherMock())
+                    let tracker = AvTracker.fixture(queue: queue, dispatcher: DispatcherMock())
                     tracker.dispatch()
                     expect(tracker.isDispatching).to(beTrue())
                 }
                 it("should not throw an assertion if called from a background thread") {
-                    let tracker = MatomoTracker.fixture(queue: MemoryQueue(), dispatcher: DispatcherMock())
+                    let tracker = AvTracker.fixture(queue: MemoryQueue(), dispatcher: DispatcherMock())
                     tracker.queue(event: .fixture())
                     var dispatched = false
                     DispatchQueue.global(qos: .background).async {
@@ -85,7 +85,7 @@ class TrackerSpec: QuickSpec {
             }
             it("should start a new DispatchTimer if dispatching failed") {
                 let dispatcher = DispatcherMock()
-                let tracker = MatomoTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
+                let tracker = AvTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
                 dispatcher.sendEventsHandler = { _, _, failure in
                     failure(NSError(domain: "spec", code: 0))
                 }
@@ -95,7 +95,7 @@ class TrackerSpec: QuickSpec {
             }
             it("should start a new DispatchTimer if dispatching succeeded") {
                 let dispatcher = DispatcherMock()
-                let tracker = MatomoTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
+                let tracker = AvTracker.fixture(queue: MemoryQueue(), dispatcher: dispatcher)
                 dispatcher.sendEventsHandler = { _, success, _ in
                     tracker.queue(event: .fixture())
                     success()
@@ -114,7 +114,7 @@ class TrackerSpec: QuickSpec {
             it("populates the cid value if set") {
                 var queuedEvent: Event? = nil
                 let queue = QueueMock()
-                let tracker = MatomoTracker.fixture(queue: queue, dispatcher: DispatcherMock())
+                let tracker = AvTracker.fixture(queue: queue, dispatcher: DispatcherMock())
                 queue.enqueueEventsHandler = { events, _ in
                     queuedEvent = events.first
                 }
@@ -123,15 +123,15 @@ class TrackerSpec: QuickSpec {
                 expect(queuedEvent?.visitor.forcedId).toEventually(equal("0123456789abcdef"))
             }
             it("it doesn't change the existing value if set to an invalid one") {
-                let tracker = MatomoTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
                 tracker.forcedVisitorId = "0123456789abcdef"
                 tracker.forcedVisitorId = "invalid"
                 expect(tracker.forcedVisitorId) == "0123456789abcdef"
             }
             it("should persist and restore the value") {
-                let tracker = MatomoTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
                 tracker.forcedVisitorId = "0123456789abcdef"
-                let tracker2 = MatomoTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker2 = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
                 expect(tracker2.forcedVisitorId) == "0123456789abcdef"
             }
         }
