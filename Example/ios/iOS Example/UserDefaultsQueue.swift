@@ -1,5 +1,5 @@
 import Foundation
-import MatomoTracker
+import AvTracker
 
 public final class UserDefaultsQueue: NSObject, Queue {
     private var items: [Event] {

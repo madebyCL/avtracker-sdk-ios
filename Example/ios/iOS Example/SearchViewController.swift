@@ -1,5 +1,5 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
     
@@ -7,12 +7,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","search"])
+        AvTracker.shared.track(view: ["menu","search"])
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else { return }
-        MatomoTracker.shared.trackSearch(query: query, category: "MatomoTracker Search", resultCount: Int(arc4random_uniform(100)))
+        AvTracker.shared.trackSearch(query: query, category: "MatomoTracker Search", resultCount: Int(arc4random_uniform(100)))
     }
 }
 

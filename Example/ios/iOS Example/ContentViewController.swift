@@ -7,17 +7,17 @@
 //
 
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class ContentTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        MatomoTracker.shared.trackContentImpression(name: "Content name", piece: "button", target: "http://dn.se")
+        AvTracker.shared.trackContentImpression(name: "Content name", piece: "button", target: "http://dn.se")
     }
     
     @IBAction func adInteraction(_ sender: Any) {
-        MatomoTracker.shared.trackContentInteraction(name: "Content name", interaction: "click", piece: "button", target: "http://dn.se")
+        AvTracker.shared.trackContentInteraction(name: "Content name", interaction: "click", piece: "button", target: "http://dn.se")
         UIApplication.shared.openURL(URL(string: "http://dn.se")!)
     }
 }

@@ -1,20 +1,20 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class OptOutViewController: UIViewController {
     
     @IBOutlet weak var optOutSwitch: UISwitch!
     @IBAction func optOutSwitchChanged(_ sender: Any) {
-        MatomoTracker.shared.isOptedOut = optOutSwitch.isOn
+        AvTracker.shared.isOptedOut = optOutSwitch.isOn
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        optOutSwitch.isOn = MatomoTracker.shared.isOptedOut
+        optOutSwitch.isOn = AvTracker.shared.isOptedOut
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","opt out"])
+        AvTracker.shared.track(view: ["menu","opt out"])
     }
 }

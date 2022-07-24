@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class GoalsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        MatomoTracker.shared.track(view: ["menu","goals"])
+        AvTracker.shared.track(view: ["menu","goals"])
     }
     
     @IBAction func donateButtonTapped(_ sender: Any) {
-       MatomoTracker.shared.trackGoal(id: 1, revenue: 5)
+       AvTracker.shared.trackGoal(id: 1, revenue: 5)
     }
     
 }

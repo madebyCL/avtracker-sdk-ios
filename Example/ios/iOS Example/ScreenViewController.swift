@@ -1,9 +1,9 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class ScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","screen view"])
+        AvTracker.shared.track(view: ["menu","screen view"])
     }
 }

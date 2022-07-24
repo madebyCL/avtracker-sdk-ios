@@ -1,14 +1,14 @@
 import Foundation
-import MatomoTracker
+import AvTracker
 
-extension MatomoTracker {
-    static let shared: MatomoTracker = {
+extension AvTracker {
+    static let shared: AvTracker = {
         let queue = UserDefaultsQueue(UserDefaults.standard, autoSave: true)
-        let dispatcher = URLSessionDispatcher(baseURL: URL(string: "https://demo2.matomo.org/piwik.php")!)
-        let matomoTracker = MatomoTracker(siteId: "23", queue: queue, dispatcher: dispatcher)
-        matomoTracker.logger = DefaultLogger(minLevel: .verbose)
-        matomoTracker.migrateFromFourPointFourSharedInstance()
-        return matomoTracker
+        let dispatcher = URLSessionDispatcher(baseURL: URL(string: "https://ad-v.kr/p")!)
+        let AvTracker = AvTracker(siteId: "23", queue: queue, dispatcher: dispatcher)
+        AvTracker.logger = DefaultLogger(minLevel: .verbose)
+        AvTracker.migrateFromFourPointFourSharedInstance()
+        return AvTracker
     }()
     
     private func migrateFromFourPointFourSharedInstance() {

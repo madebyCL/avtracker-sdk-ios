@@ -1,19 +1,19 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class ConfigurationViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","configuration"])
+        AvTracker.shared.track(view: ["menu","configuration"])
     }
     
     @IBAction func newSessionButtonTapped(_ sender: UIButton) {
-        MatomoTracker.shared.startNewSession()
+        AvTracker.shared.startNewSession()
     }
     
     @IBAction func dispatchButtonTapped(_ sender: UIButton) {
-        MatomoTracker.shared.dispatch()
+        AvTracker.shared.dispatch()
     }
 
 }

@@ -8,11 +8,11 @@ class TrackerSpec: QuickSpec {
         Nimble.AsyncDefaults.timeout = .seconds(5)
         describe("init") {
             it("should be able to initialized the AvTracker with a URL ending on `matomo.php`") {
-                let tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://ad-v.net/p")!)
+                let tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://ad-v.kr/p")!)
                 expect(tracker).toNot(beNil())
             }
             it("should be released if no external strong reference exists (no retain cycles") {
-                weak var tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://ad-v.net/p")!)
+                weak var tracker = AvTracker(siteId: "5", baseURL: URL(string: "https://ad-v.kr/p")!)
                 expect(tracker).to(beNil())
             }
         }
@@ -124,15 +124,15 @@ class TrackerSpec: QuickSpec {
                 expect(queuedEvent?.visitor.forcedId).toEventually(equal("0123456789abcdef"))
             }
             it("it doesn't change the existing value if set to an invalid one") {
-                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "https://ad-v.kr/p")!)
                 tracker.forcedVisitorId = "0123456789abcdef"
                 tracker.forcedVisitorId = "invalid"
                 expect(tracker.forcedVisitorId) == "0123456789abcdef"
             }
             it("should persist and restore the value") {
-                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker = AvTracker.init(siteId: "spec", baseURL: URL(string: "https://ad-v.kr/p")!)
                 tracker.forcedVisitorId = "0123456789abcdef"
-                let tracker2 = AvTracker.init(siteId: "spec", baseURL: URL(string: "http://matomo.org/spec/piwik.php")!)
+                let tracker2 = AvTracker.init(siteId: "spec", baseURL: URL(string: "https://ad-v.kr/p")!)
                 expect(tracker2.forcedVisitorId) == "0123456789abcdef"
             }
         }

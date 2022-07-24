@@ -1,12 +1,12 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class EventsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","events"])
+        AvTracker.shared.track(view: ["menu","events"])
     }
     @IBAction func trackEventButtonTapped(_ sender: UIButton) {
-        MatomoTracker.shared.track(eventWithCategory: "TestCategory", action: "TestAction", name: "TestName", value: 7)
+        AvTracker.shared.track(eventWithCategory: "TestCategory", action: "TestAction", name: "TestName", value: 7)
     }
 }

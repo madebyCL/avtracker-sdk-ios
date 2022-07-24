@@ -1,5 +1,5 @@
 import UIKit
-import MatomoTracker
+import AvTracker
 
 class CampaignViewController: UIViewController {
     
@@ -8,14 +8,14 @@ class CampaignViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        MatomoTracker.shared.track(view: ["menu","campaign tracking"])
+        AvTracker.shared.track(view: ["menu","campaign tracking"])
     }
     
     @IBAction func didTapTrackCampaignButton(_ sender: UIButton) {
         let name = campaignNameTextField.text
         let keyword = campaignKeywordTextField.text
         
-        MatomoTracker.shared.trackCampaign(name: name, keyword: keyword)
+        AvTracker.shared.trackCampaign(name: name, keyword: keyword)
     }
     
 }
