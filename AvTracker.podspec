@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
   spec.author       = { "AD Intelligence Inc. " => "leo@ad-i.com" }
   spec.source       = { :git => "https://github.com/madebyCL/avtracker-sdk-ios.git", :tag => "v#{spec.version}" }
-  spec.ios.deployment_target = '10.0'
+  spec.ios.deployment_target = '12.0'
   spec.tvos.deployment_target = '10.0'
   spec.osx.deployment_target = '10.12'
   spec.requires_arc = true

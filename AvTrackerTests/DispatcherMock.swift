@@ -23,4 +23,3 @@ final class DispatcherMock: Dispatcher {
         sendEventsHandler?(events, success, failure)
     }
 }
-

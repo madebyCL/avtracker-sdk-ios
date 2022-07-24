@@ -20,7 +20,6 @@
 		1F6B2F032529CE8A00D2A591 /* UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B2F012529CC3400D2A591 /* UserAgent.swift */; };
 		1F6F0CD71E61E35A008170FC /* AvTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CD61E61E35A008170FC /* AvTracker.swift */; };
 		1F6F0CDC1E61E377008170FC /* DispatcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CD81E61E377008170FC /* DispatcherMock.swift */; };
-		1F6F0CDD1E61E377008170FC /* QueueMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CD91E61E377008170FC /* QueueMock.swift */; };
 		1F6F0CDF1E61E377008170FC /* TrackerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CDB1E61E377008170FC /* TrackerSpec.swift */; };
 		1F6F0CE11E61E4F3008170FC /* URLSessionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CE01E61E4F3008170FC /* URLSessionDispatcher.swift */; };
 		1F7001CB216C9D8C007A9355 /* EventAPISerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7001CA216C9D8C007A9355 /* EventAPISerializer.swift */; };
@@ -29,7 +28,7 @@
 		1F8DCCD425A1B9E100C98793 /* Event+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCD325A1B9E100C98793 /* Event+Fixture.swift */; };
 		1F8DCCD625A1BA2C00C98793 /* Visitor+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCD525A1BA2C00C98793 /* Visitor+Fixture.swift */; };
 		1F8DCCD825A1BA4900C98793 /* Session+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCD725A1BA4900C98793 /* Session+Fixture.swift */; };
-		1F8DCCDA25A1BAF700C98793 /* MatomoTracker+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCD925A1BAF700C98793 /* MatomoTracker+Fixture.swift */; };
+		1F8DCCDA25A1BAF700C98793 /* AvTracker+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCD925A1BAF700C98793 /* AvTracker+Fixture.swift */; };
 		1F8DCCDC25A1C7C700C98793 /* EventAPISerializerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8DCCDB25A1C7C700C98793 /* EventAPISerializerSpec.swift */; };
 		1F963074201B37A3007B2AE7 /* PiwikUserDefaultsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F963073201B37A3007B2AE7 /* PiwikUserDefaultsSpec.swift */; };
 		1FC2B429201F8C010061F5AD /* CustomVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2B428201F8C010061F5AD /* CustomVariable.swift */; };
@@ -39,6 +38,8 @@
 		1FDC917F1F1A65150046F506 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC917D1F1A65150046F506 /* Application.swift */; };
 		1FDC91801F1A65150046F506 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDC917E1F1A65150046F506 /* Device.swift */; };
 		5ACB1FAD21426FFB007C766B /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB1FAC21426FFB007C766B /* OrderItem.swift */; };
+		D1C39B8C288D98650057D60C /* QueueMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F0CD91E61E377008170FC /* QueueMock.swift */; };
+		D1C39B8E288D9A950057D60C /* QueueStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C39B8D288D9A940057D60C /* QueueStub.swift */; };
 		DDF6641690FE72CB95CD3692 /* Pods_AvTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B046BED7AC47B99E04D7FE71 /* Pods_AvTrackerTests.framework */; };
 		FDCA325A2093BFFB007D6B42 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FDCA32592093BFFB007D6B42 /* README.md */; };
 /* End PBXBuildFile section */
@@ -76,7 +77,7 @@
 		1F8DCCD325A1B9E100C98793 /* Event+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Fixture.swift"; sourceTree = "<group>"; };
 		1F8DCCD525A1BA2C00C98793 /* Visitor+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Visitor+Fixture.swift"; sourceTree = "<group>"; };
 		1F8DCCD725A1BA4900C98793 /* Session+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+Fixture.swift"; sourceTree = "<group>"; };
-		1F8DCCD925A1BAF700C98793 /* MatomoTracker+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatomoTracker+Fixture.swift"; sourceTree = "<group>"; };
+		1F8DCCD925A1BAF700C98793 /* AvTracker+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvTracker+Fixture.swift"; sourceTree = "<group>"; };
 		1F8DCCDB25A1C7C700C98793 /* EventAPISerializerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAPISerializerSpec.swift; sourceTree = "<group>"; };
 		1F963073201B37A3007B2AE7 /* PiwikUserDefaultsSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiwikUserDefaultsSpec.swift; sourceTree = "<group>"; };
 		1FC2B428201F8C010061F5AD /* CustomVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVariable.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		68F0C25DEF98C13D32CC46DD /* Pods_PiwikTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiwikTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F688B0F18F298B5E61552AC /* Pods-PiwikTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiwikTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PiwikTrackerTests/Pods-PiwikTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		B046BED7AC47B99E04D7FE71 /* Pods_AvTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AvTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C39B8D288D9A940057D60C /* QueueStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueStub.swift; sourceTree = "<group>"; };
 		ECADEAA1E653EE3DA30A1FDC /* Pods-MatomoTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MatomoTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MatomoTrackerTests/Pods-MatomoTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F16B925DEEB1E4F6BFA281D1 /* Pods-AvTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AvTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AvTrackerTests/Pods-AvTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD284F50B998823EAFB0CEE9 /* Pods-PiwikTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiwikTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PiwikTrackerTests/Pods-PiwikTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,10 +138,6 @@
 		1F1949F51E17B2A400458199 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				1F8DCCD325A1B9E100C98793 /* Event+Fixture.swift */,
-				1F8DCCD525A1BA2C00C98793 /* Visitor+Fixture.swift */,
-				1F8DCCD725A1BA4900C98793 /* Session+Fixture.swift */,
-				1F8DCCD925A1BAF700C98793 /* MatomoTracker+Fixture.swift */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -147,8 +145,6 @@
 		1F63E1D5216B503D000C4C00 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
-				1F6F0CD81E61E377008170FC /* DispatcherMock.swift */,
-				1F6F0CD91E61E377008170FC /* QueueMock.swift */,
 			);
 			name = Stubs;
 			sourceTree = "<group>";
@@ -209,6 +205,13 @@
 		1FCA6D481DBE0B2F0033F01C /* AvTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F8DCCD525A1BA2C00C98793 /* Visitor+Fixture.swift */,
+				D1C39B8D288D9A940057D60C /* QueueStub.swift */,
+				1F8DCCD925A1BAF700C98793 /* AvTracker+Fixture.swift */,
+				1F8DCCD725A1BA4900C98793 /* Session+Fixture.swift */,
+				1F6F0CD81E61E377008170FC /* DispatcherMock.swift */,
+				1F6F0CD91E61E377008170FC /* QueueMock.swift */,
+				1F8DCCD325A1B9E100C98793 /* Event+Fixture.swift */,
 				1F63E1D5216B503D000C4C00 /* Stubs */,
 				1F1949F51E17B2A400458199 /* Fixtures */,
 				1F1949F31E17B06600458199 /* MemoryQueueSpec.swift */,
@@ -260,9 +263,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FCA6D4F1DBE0B2F0033F01C /* Build configuration list for PBXNativeTarget "AvTracker" */;
 			buildPhases = (
+				1FCA6D381DBE0B2F0033F01C /* Headers */,
 				1FCA6D361DBE0B2F0033F01C /* Sources */,
 				1FCA6D371DBE0B2F0033F01C /* Frameworks */,
-				1FCA6D381DBE0B2F0033F01C /* Headers */,
 				1FCA6D391DBE0B2F0033F01C /* Resources */,
 			);
 			buildRules = (
@@ -281,8 +284,8 @@
 				40E940918D712CC15E5735CE /* [CP] Check Pods Manifest.lock */,
 				1FCA6D401DBE0B2F0033F01C /* Sources */,
 				1FCA6D411DBE0B2F0033F01C /* Frameworks */,
-				1FCA6D421DBE0B2F0033F01C /* Resources */,
 				22AB6DF399C52F3B2B8ED25F /* [CP] Embed Pods Frameworks */,
+				1FCA6D421DBE0B2F0033F01C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -430,13 +433,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F8DCCDC25A1C7C700C98793 /* EventAPISerializerSpec.swift in Sources */,
-				1F6F0CDD1E61E377008170FC /* QueueMock.swift in Sources */,
-				1F8DCCDA25A1BAF700C98793 /* MatomoTracker+Fixture.swift in Sources */,
+				1F8DCCDA25A1BAF700C98793 /* AvTracker+Fixture.swift in Sources */,
 				1F6F0CDC1E61E377008170FC /* DispatcherMock.swift in Sources */,
 				1F963074201B37A3007B2AE7 /* PiwikUserDefaultsSpec.swift in Sources */,
 				1F8DCCD825A1BA4900C98793 /* Session+Fixture.swift in Sources */,
+				D1C39B8C288D98650057D60C /* QueueMock.swift in Sources */,
 				1F8DCCD625A1BA2C00C98793 /* Visitor+Fixture.swift in Sources */,
 				1F8DCCD425A1B9E100C98793 /* Event+Fixture.swift in Sources */,
+				D1C39B8E288D9A950057D60C /* QueueStub.swift in Sources */,
 				1F1949F41E17B06600458199 /* MemoryQueueSpec.swift in Sources */,
 				1F6F0CDF1E61E377008170FC /* TrackerSpec.swift in Sources */,
 			);

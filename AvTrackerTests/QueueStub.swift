@@ -1,4 +1,4 @@
-@testable import MatomoTracker
+@testable import AvTracker
 
 final class QueueStub: Queue {
     struct Callback {
