@@ -7,7 +7,7 @@ abstract_target :example do
   workspace 'AvTracker'
 
   target :iOSExampleApp do
-    platform :ios, '10.0'
+    platform :ios, '12.0'
     project 'Example/ios/ios'
     pod 'AvTracker', path: './'
   end
